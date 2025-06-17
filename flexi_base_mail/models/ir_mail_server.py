@@ -24,9 +24,11 @@ class IrMailServer(models.Model):
         # select an outgoing mail server related to the current smtp user and
         # force the smtp_session to be none to force odoo to generate a new
         # session with our outgoing mail server
-        mail_server = self.sudo().search([('smtp_user','=',email_from)], order='sequence', limit=1)
+        out_mail_server = self.sudo().search([('smtp_user','=',email_from)], order='sequence desc', limit=1)
+        if not mail_server_id and out_mail_server:
+            mail_server_id = out_mail_server.id
 
-        return super(IrMailServer, self).send_email(message, mail_server_id=mail_server.id,
+        return super(IrMailServer, self).send_email(message, mail_server_id=mail_server_id,
                                                     smtp_server=smtp_server, smtp_port=smtp_port,
                                                     smtp_user=smtp_user, smtp_password=smtp_password,
                                                     smtp_encryption=smtp_encryption,

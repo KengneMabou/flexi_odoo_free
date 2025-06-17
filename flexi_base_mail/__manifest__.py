@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 {
-	'name': 'Flexi outgoing mail',
-	'description': 'Better implementation of mail sending',
-	'summary': "Better implementation of mail sending",
+	'name': 'Flexi base mail',
+	'description': 'Better implementation for sending and receiving mails',
+	'summary': "Better implementation for sending and receiving mails",
 	'author': 'Marex Sarl',
 	'website': 'https://marex-sarl.com',
 	'version': '14.0.0.1.0',
