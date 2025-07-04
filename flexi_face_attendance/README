@@ -1,0 +1,9 @@
+This work is a derivative of the excellent work done by the folks at cybrosys that can be found here:
+https://github.com/CybroOdoo/CybroAddons/tree/17.0/face_recognized_attendance_login.
+
+Contrary to the work done by cybrosys, this module add geolocation and liveness detection to prevent
+attendance fraud.
+
+When using the module, once the camera is active, you will need to vary your facial expression between
+smiling, surprised and tight-lipped for 5 to 10 seconds to be successful during identification.
+In addition, the place where you perform your facial recognition must be well lit.

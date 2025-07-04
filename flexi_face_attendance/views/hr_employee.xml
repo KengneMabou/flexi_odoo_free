@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="face_recognition_hr_employee_form" model="ir.ui.view">
+        <field name="name">face_recognition_hr_employee_form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='hr_settings']" position="after">
+                <page string="Attendance" name="face_attendance_settings">
+                    <group>
+                        <field name="last_latitude" />
+                        <field name="last_longitude" />
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
