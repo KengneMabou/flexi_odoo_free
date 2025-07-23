@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_room_category_base_group_user,access_room_category_base_group_user,model_room_category,base.group_user,1,1,1,0
+access_room_pricing_base_group_user,access_room_pricing_base_group_user,model_room_pricing,base.group_user,1,1,1,0
+access_room_pricing_line_base_group_user,access_room_pricing_line_base_group_user,model_room_pricing_line,base.group_user,1,1,1,0
+access_room_provision_base_group_user,access_room_provision_base_group_user,model_room_provision,base.group_user,1,1,1,0

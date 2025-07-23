@@ -1,0 +1,11 @@
+La vente en back office: Les opérations de ventes en backoffice concerne en
+premier chef les opérations de fixation des prix des services (ou pricing).
+Il est donc important que votre solution de gestion fournisse un mécanisme
+flexible de définition des prix des services en fonction par exemple de la
+période (de la journée, de la semaine, du mois ou de l’année), d’un événement, etc.
+
+
+Gestion des avances de paiements:
+    - https://github.com/OCA/sale-workflow/tree/16.0/sale_advance_payment
+
+    - https://github.com/OCA/sale-workflow/tree/16.0/sale_payment_sheet

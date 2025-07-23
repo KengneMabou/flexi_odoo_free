@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+	<data>
+		<record id="room_pricing_view_form" model="ir.ui.view">
+			<field name="name">room_pricing_view_form</field>
+			<field name="model">room.pricing</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group name="general_infos">
+							<field name="name" />
+							<field name="company_id" invisible="1"/>
+						</group>
+						<notebook>
+							<page string="Pricing lines" name="pricing_lines">
+                                <field name="pricing_line_ids"/>
+                            </page>
+                        </notebook>
+					</sheet>
+					<div class="oe_chatter">
+						<field name="message_follower_ids" widget="mail_followers" />
+						<field name="message_ids" widget="mail_thread" />
+					</div>
+				</form>
+			</field>
+		</record>
+
+		<record id="room_pricing_view_tree" model="ir.ui.view">
+			<field name="name">room_pricing_view_tree</field>
+			<field name="model">room.pricing</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name" />
+				</tree>
+			</field>
+		</record>
+		<record model="ir.actions.act_window" id="act_open_room_pricing_view">
+		    <field name="name">Room pricing</field>
+		    <field name="type">ir.actions.act_window</field>
+		    <field name="res_model">room.pricing</field>
+		    <field name="view_mode">tree,form</field>
+		    <field name="domain">[]</field>
+		    <field name="context">{}</field>
+		</record>
+		
+		<record model="ir.actions.act_window.view" id="act_open_room_pricing_view_form">
+		    <field name="act_window_id" ref="act_open_room_pricing_view"/>
+		    <field name="sequence" eval="20"/>
+		    <field name="view_mode">form</field>
+		    <field name="view_id" ref="room_pricing_view_form"/>
+		</record>
+		
+		<record model="ir.actions.act_window.view" id="act_open_room_pricing_view_tree">
+		    <field name="act_window_id" ref="act_open_room_pricing_view"/>
+		    <field name="sequence" eval="10"/>
+		    <field name="view_mode">tree</field>
+		    <field name="view_id" ref="room_pricing_view_tree"/>
+		</record>
+		
+		<!-- Menu item  -->
+		<menuitem id="menu_room_pricing"
+                  parent="hotel_management_odoo.hotel_config_menu"
+                  sequence="11"
+                  action="act_open_room_pricing_view"
+                  name="Room pricing"/>
+		
+	</data>
+</odoo>

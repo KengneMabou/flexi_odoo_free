@@ -1,0 +1,12 @@
+Cett solution sera basée sur les modules suivants ci-dessous
+
+Gestion des avances de paiements:
+    - https://github.com/OCA/sale-workflow/tree/16.0/sale_advance_payment
+
+    - https://github.com/OCA/sale-workflow/tree/16.0/sale_payment_sheet
+
+Gestion de l'activité hotelière:
+
+    - https://github.com/nasara-technologies/CybroAddons/tree/17.0/hotel_management_odoo
+
+    - https://github.com/OCA/vertical-hotel/tree/17.0

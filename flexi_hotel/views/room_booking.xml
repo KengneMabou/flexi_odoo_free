@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+	<data>
+        <record id="flexih_room_booking_view_form" model="ir.ui.view">
+            <field name="name">flexih_room_booking_view_form</field>
+            <field name="model">hotel.room</field>
+            <field name="inherit_id" ref="hotel_management_odoo.room_booking_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='folio']/field[@name='room_line_ids']" position="before">
+                    <group name="room_preferences" string="Preferences">
+                        <field name="room_type"/>
+                        <field name="floor_id"/>
+                        <field name="room_amenities_ids" widget="many2many_tags"/>
+                    </group>
+                </xpath>
+                <xpath expr="//field[@name='is_checkin']" position="after">
+                    <field name="in_reservation" invisible="1"/>
+                </xpath>
+                <xpath expr="//page[@name='folio']/field[@name='room_line_ids']/tree/field[@name='room_id']" position="before">
+                    <field name="in_reservation" invisible="1"/>
+                    <field name="room_type" invisible="1"/>
+                    <field name="floor_id" invisible="1"/>
+                    <field name="room_amenities_ids" invisible="1" widget="many2many_tags"/>
+                    <field name="room_domain" invisible="1"/>
+                </xpath>
+                <xpath expr="//page[@name='folio']/field[@name='room_line_ids']/tree/field[@name='room_id']" position="after">
+                    <field name="provision_id" readonly="1" force_save="1"/>
+                    <field name="occupant_ids" widget="many2many_tags" readonly="not in_reservation"/>
+                    <field name="booking_duration"/>
+                </xpath>
+
+                <xpath expr="//page[@name='folio']/field[@name='room_line_ids']/tree/field[@name='checkin_date']" position="attributes">
+                    <attribute name="readonly">not in_reservation</attribute>
+                </xpath>
+                <xpath expr="//page[@name='folio']/field[@name='room_line_ids']/tree/field[@name='checkout_date']" position="attributes">
+                    <attribute name="readonly">not in_reservation</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
