@@ -1,2 +1,2 @@
-For the payroll module, if you use odoo community, you can have it here:
-    https://github.com/OCA/payroll/blob/17.0/payroll
+This module is aim to provide integration between Odoo and DMS systems like Nextcloud, Alfresco,
+Google Drive, etc.
