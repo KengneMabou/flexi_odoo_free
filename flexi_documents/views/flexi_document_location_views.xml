@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="flexi_document_location_form" model="ir.ui.view">
+            <field name="name">flexi.document.location.form</field>
+            <field name="model">flexi.document.location</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="parent_id"/>
+                                <field name="complete_name" invisible="1"/>
+                                <field name="company_id" groups="base.group_multi_company" invisible="1"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Sous-emplacements" name="child_ids">
+                                <field name="child_ids"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="flexi_document_location_tree" model="ir.ui.view">
+            <field name="name">flexi.document.location.tree</field>
+            <field name="model">flexi.document.location</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="parent_id"/>
+                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="flexi_document_location_search" model="ir.ui.view">
+            <field name="name">flexi.document.location.search</field>
+            <field name="model">flexi.document.location</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="parent_id"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_flexi_document_location_view">
+            <field name="name">Emplacement de document</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">flexi.document.location</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="flexi_document_location_search"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_flexi_document_location_view_form">
+            <field name="act_window_id" ref="act_flexi_document_location_view"/>
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="flexi_document_location_form"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_flexi_document_location_view_tree">
+            <field name="act_window_id" ref="act_flexi_document_location_view"/>
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="flexi_document_location_tree"/>
+        </record>
+        
+        <menuitem id="menu_flexi_document_location"
+                  name="Emplacement de document"
+                  sequence="9"
+                  parent="menu_flexi_documents_config"
+                  action="act_flexi_document_location_view"/>
+
+    </data>
+</odoo>

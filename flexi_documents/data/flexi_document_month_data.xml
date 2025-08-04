@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="data_flexi_document_month_01" model="flexi.document.month">
+            <field name="name">Janvier</field>
+        </record>
+        <record id="data_flexi_document_month_02" model="flexi.document.month">
+            <field name="name">Février</field>
+        </record>
+        <record id="data_flexi_document_month_03" model="flexi.document.month">
+            <field name="name">Mars</field>
+        </record>
+        <record id="data_flexi_document_month_04" model="flexi.document.month">
+            <field name="name">Avril</field>
+        </record>
+        <record id="data_flexi_document_month_05" model="flexi.document.month">
+            <field name="name">Mai</field>
+        </record>
+        <record id="data_flexi_document_month_06" model="flexi.document.month">
+            <field name="name">Juin</field>
+        </record>
+        <record id="data_flexi_document_month_07" model="flexi.document.month">
+            <field name="name">Juillet</field>
+        </record>
+        <record id="data_flexi_document_month_08" model="flexi.document.month">
+            <field name="name">Août</field>
+        </record>
+        <record id="data_flexi_document_month_09" model="flexi.document.month">
+            <field name="name">Septembre</field>
+        </record>
+        <record id="data_flexi_document_month_10" model="flexi.document.month">
+            <field name="name">Octobre</field>
+        </record>
+        <record id="data_flexi_document_month_11" model="flexi.document.month">
+            <field name="name">Novembre</field>
+        </record>
+        <record id="data_flexi_document_month_12" model="flexi.document.month">
+            <field name="name">Décembre</field>
+        </record>
+    </data>
+</odoo>

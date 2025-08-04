@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="dms_hr_payslip_form_inherit" model="ir.ui.view">
+        <field name="name">dms_hr_payslip_form_inherit</field>
+        <field name="model">hr.payslip</field>
+        <field name="inherit_id" ref="payroll.hr_payslip_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='compute_sheet']" position="after">
+                <button
+                    name="upload_report_file_to_dms"
+                    string="Send to DMS"
+                    class="oe_highlight"
+                    type="object"/>
+
+                <button
+                    name="demande_association_fichier"
+                    string="Join Files From DMS"
+                    class="oe_highlight"
+                    groups="flexi_odoo_dms.group_dms_manager"
+                    type="object"/>
+
+                <button
+                    name="open_attachments_upload_to_dms"
+                    string="Send attachments to DMS"
+                    class="oe_highlight"
+                    groups="flexi_odoo_dms.group_dms_manager"
+                    type="object"/>
+                
+                <button
+                    name="demande_signature_document"
+                    string="Signature Request"
+                    class="oe_highlight"
+                    groups="flexi_odoo_dms.group_dms_manager"
+                    type="object"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
+    

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_dms_signature_request_form" model="ir.ui.view">
+        <field name="name">dms.signature.request.form</field>
+        <field name="model">dms.signature.request</field>
+        <field name="arch" type="xml">
+            <form string="Demande de signature">
+                <sheet>
+                    <group>
+                        <field name="email_addresses"/>
+                    </group>
+                    <notebook>
+                        <page string="Autre(s) destinataire(s)">
+                            
+                            <field name="signature_destination_ids">
+                                <tree editable="botton">
+                                    <field name="internal_contact_ref"/>
+                                    <field name="email"/>
+                                </tree>
+                            </field>
+                            
+                        </page>
+                    </notebook>
+
+                </sheet>
+                <footer>
+                    <button 
+                        name="send_signature_request"
+                        string="Envoyer"
+                        class="btn-primary"
+                        type="object"/>
+                    <button 
+                        string="Annuler"
+                        class="btn-secondary"
+                        special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

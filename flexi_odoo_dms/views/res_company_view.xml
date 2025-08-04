@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+		<record id="flexi_odoo_dms_view_company_form" model="ir.ui.view">
+			<field name="name">flexi_odoo_dms_view_company_form</field>
+			<field name="model">res.company</field>
+			<field name="inherit_id" ref="base.view_company_form"/>
+			<field name="arch" type="xml">
+				<xpath expr="//page[1]" position="after">
+					<page string="Connecteurs odoo-ged" name="flexi_odoo_dms">
+						<group>
+							<group string="Nextcloud">
+								<field name="dms_download_type"/>
+							</group>
+						</group>
+					</page>
+				</xpath>
+			</field>
+		</record>
+	</data>
+</odoo>

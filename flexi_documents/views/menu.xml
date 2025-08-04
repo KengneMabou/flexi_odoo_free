@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_flexi_documents_root"
+              name="Documents"
+              sequence="35"
+              web_icon="flexi_documents,static/description/icon.png"/>
+
+    <menuitem id="menu_flexi_documents_management"
+              sequence="60"
+              parent="menu_flexi_documents_root"
+              name="Edition"/>
+
+    <menuitem id="menu_flexi_documents_config"
+              sequence="61"
+              parent="menu_flexi_documents_root"
+              groups="flexi_documents.group_flexi_documents_manager"
+              name="Configuration"/>
+
+</odoo>

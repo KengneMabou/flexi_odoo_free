@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_dms_file_select_form" model="ir.ui.view">
+        <field name="name">dms.file.select.form</field>
+        <field name="model">dms.file.select</field>
+        <field name="arch" type="xml">
+            <form string="Sélection de fichier">
+                <sheet>
+                    <group>
+                        <field name="file_ids" widget="many2many_tags"/> 
+                    </group>
+                </sheet>
+                <footer>
+                    <button 
+                        name="action_select_files" 
+                        string="Sélectionner" 
+                        class="btn-primary" 
+                        type="object"/>
+                    <button 
+                        string="Annuler" 
+                        class="btn-secondary" 
+                        special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="act_open_dms_files_select_view">
+		    <field name="name">Sélection du fichier ged</field>
+		    <field name="type">ir.actions.act_window</field>
+		    <field name="res_model">dms.file.select</field>
+		    <field name="view_mode">form</field>
+			<field name="target">new</field>
+		    <field name="domain">[]</field>
+		    <field name="context">{}</field>
+		</record>
+		<record model="ir.actions.act_window.view" id="act_open_dms_files_select_view_form">
+		    <field name="act_window_id" ref="act_open_dms_files_select_view"/>
+		    <field name="sequence" eval="20"/>
+		    <field name="view_mode">form</field>
+		    <field name="view_id" ref="view_dms_file_select_form"/>
+		</record>
+
+</odoo>

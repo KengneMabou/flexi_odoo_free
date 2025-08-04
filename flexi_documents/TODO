@@ -1,0 +1,16 @@
+(fait) Mettre un champ sur le formulaire ou le kanban d'un document pour indiquer qu'il expiré
+
+(fait) Mettre un champ de configuration permettant de dire si oui ou non on veut archiver automatique les documents
+expiré. Ce champ sera recopier sur chaque document ou il sera modifiable par document.
+
+(fait) Ecrire la fonction cron qui détecte les documents qui sont dans les delais
+de grâce d'avant expiration, envoi un mail de notifications (Tel date, x document arrive à expiration)
+à des utilisateurs, sélectionnés. Elle détecte aussi les documents réellement expirés, les archivent et
+envoi un indiquant les documents qui ont été archivés.
+
+Autres champs pertinents pour plus tard pour améliorer la fonction de notification (mis en paramètres sur la
+société et recopié sur le document):
+- Delai supplémentaire avant archivage (délai supplémentaire après la date d'expiration avant de mettre
+le document en mode archive)
+- Durée entre 02 notifications cron (celà suposse que l'on passe le delai d'execution du cron à 1 jour au
+lieu de 02 comme actuellement)

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_dms_signature_confirm_form" model="ir.ui.view">
+        <field name="name">dms.signature.confirm.form</field>
+        <field name="model">dms.signature.confirm</field>
+        <field name="arch" type="xml">
+            <form string="Confirmation de signature">
+                <sheet>
+                    <group>
+                        <field name="name" readonly="1"/>
+                    </group>
+                    <footer>
+                        <button name="action_confirm" type="object" string="Confirmer" class="btn-primary"/>
+                        <button name="action_cancel" type="object" string="Annuler" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_dms_signature_confirm" model="ir.actions.act_window">
+        <field name="name">Confirmation de signature</field>
+        <field name="res_model">dms.signature.confirm</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="flexi_document_profile_form" model="ir.ui.view">
+            <field name="name">flexi.document.profile.form</field>
+            <field name="model">flexi.document.profile</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="parent_id"/>
+                                <field name="user_ids" widget="many2many_tags"/>
+                                <field name="complete_name" invisible="1"/>
+                                <field name="company_id" groups="base.group_multi_company" invisible="1"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Sous-profils" name="child_ids">
+                                <field name="child_ids"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="flexi_document_profile_tree" model="ir.ui.view">
+            <field name="name">flexi.document.profile.tree</field>
+            <field name="model">flexi.document.profile</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="parent_id"/>
+                    <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="flexi_document_profile_search" model="ir.ui.view">
+            <field name="name">flexi.document.profile.search</field>
+            <field name="model">flexi.document.profile</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="parent_id"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_flexi_document_profile_view">
+            <field name="name">Profil de document</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">flexi.document.profile</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="flexi_document_profile_search"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_flexi_document_profile_view_form">
+            <field name="act_window_id" ref="act_flexi_document_profile_view"/>
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="flexi_document_profile_form"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_flexi_document_profile_view_tree">
+            <field name="act_window_id" ref="act_flexi_document_profile_view"/>
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="flexi_document_profile_tree"/>
+        </record>
+        
+        <menuitem id="menu_flexi_document_profile"
+                  name="Profil de document"
+                  sequence="8"
+                  parent="menu_flexi_documents_config"
+                  action="act_flexi_document_profile_view"/>
+
+    </data>
+</odoo>

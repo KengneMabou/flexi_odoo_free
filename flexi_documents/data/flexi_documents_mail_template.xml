@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="alert_expiration_document_mail_template" model="mail.template">
+            <field name="name">Gestion des documents: notification expiration prochaine de document</field>
+            <field name="model_id" ref="model_flexi_document_content" />
+            <field name="subject">Gestion des documents: notification expiration prochaine du document '{{ object.name }}'</field>
+            <field name="email_from">{{ object.create_uid.email_formatted }}</field>
+            <field name="email_to">{{ctx['mails_to']}}</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px; font-size: 13px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Chers(res) collaborateurs(rices)<br/><br/>
+                        Vous recevez ce message parceque le document '{{ object.name }}' est configuré
+                        pour envoyer des notifications  {{ object.expiry_notify_delay }} jours au moins
+                        avant son expiration le {{ object.expiration_date }}.<br/><br/>
+                        Veuillez prendre les dispositions nécessaires pour le renouveler dans les délais. <br/><br/>
+                        <div>
+                            Merci de votre collaboration !
+                        </div>
+                    </p>
+                </div>
+            </field>
+            <field name="lang">{{ object.company_id.partner_id.lang }}</field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+
+        <record id="archive_documents_mail_template" model="mail.template">
+            <field name="name">Gestion des documents: Archivage des documents expirées</field>
+            <field name="model_id" ref="model_flexi_document_content" />
+            <field name="subject">Gestion des documents: Archivage du document expiré '{{ object.name }}'</field>
+            <field name="email_from">{{ object.create_uid.email_formatted }}</field>
+            <field name="email_to">{{ctx['mails_to']}}</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px; font-size: 13px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Chers(res) collaborateurs(rices)<br/><br/>
+                        Le document '{{ object.name }}' vient d'être archivé car il est arrivé à
+                        expiration le {{ object.expiration_date }}.<br/><br/>
+                        <div>
+                            Merci de votre collaboration !
+                        </div>
+                    </p>
+                </div>
+            </field>
+            <field name="lang">{{ object.company_id.partner_id.lang }}</field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+
+    </data>
+</odoo>

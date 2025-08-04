@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+		<record id="flexi_odoo_dms_res_users_form_config" model="ir.ui.view">
+			<field name="name">flexi_odoo_dms_res_users_form_config</field>
+			<field name="model">res.users</field>
+			<field name="inherit_id" ref="base.view_users_form"/>
+			<field name="arch" type="xml">
+				<xpath expr="//page[2]" position="after">
+                    <page string="Connecteurs odoo-ged" name="flexi_odoo_dms">
+						<group>
+							<group string="Nextcloud">
+								<field name="nextcloud_url"/>
+								<field name="nextcloud_login"/>
+								<field name="nextcloud_passwd"/>
+							</group>
+						</group>
+					</page>
+                </xpath>
+			</field>
+		</record>
+	</data>
+</odoo>

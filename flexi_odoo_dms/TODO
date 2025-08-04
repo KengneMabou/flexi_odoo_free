@@ -1,0 +1,24 @@
+- (fait) envoi des fichiers/rapports pdf des documents métiers sur la GED,
+
+- (fait) attachement d’un fichier se trouvant sur la GED à un objet métier sous odoo,
+
+- (fait) envoi fichiers joints aux documents métiers sur la GED: Envoi d'un document sur nextcloud sans le stocker
+durablement sur odoo via les attachements du formulaire de la donnée métier. On s'interesse aux attachments
+de type binary qui seront transformé à la volée en attachment de type url (url de stockage sur Nextcloud).
+
+
+- recherche de document sur la GED depuis odoo.
+
+- signature électronique des fichiers/rapport pdf des documents métiers sur la GED,
+En particulier au niveau de la signature électronique il est possible de faire une intégration en passant
+par les extensions suivantes:
+    Docusign natif (Voir le workflow mise en place dans le cadre du travail  de pacome)
+    Libresign / Nextcloud
+    Docusign pour nextcloud (voir le code qui a été commencé et le testé davantage car on avait une erreur
+    serveur lié à l'utilisation de la méthode http PUT)
+    Documenso natif
+    Documenso pour nextcloud
+    OpenSign
+
+- A terme remplader le lots de boutons d'interaction avec la Ged par un seul bouton qui ouvra un
+formulaire transient et qui permet de sélectionner l'action que l'on souhaite effetuer.

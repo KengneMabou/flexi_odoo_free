@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_dms_send_attachment_form" model="ir.ui.view">
+        <field name="name">dms.send.attachment.form</field>
+        <field name="model">dms.send.attachment</field>
+        <field name="arch" type="xml">
+            <form string="Envoi des fichiers joints">
+                <sheet>
+                    <group>
+                        <field name="folder_id"/>
+                        <field name="attachment_ids" widget="many2many_tags"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button 
+                        name="action_confirm"
+                        string="Confirmer"
+                        class="btn-primary" 
+                        type="object"/>
+                    <button 
+                        string="Annuler" 
+                        class="btn-secondary" 
+                        special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="act_open_dms_send_attachment_view">
+		    <field name="name">Envoi des fichiers joints</field>
+		    <field name="type">ir.actions.act_window</field>
+		    <field name="res_model">dms.send.attachment</field>
+		    <field name="view_mode">form</field>
+			<field name="target">new</field>
+		    <field name="domain">[]</field>
+		    <field name="context">{}</field>
+		</record>
+		<record model="ir.actions.act_window.view" id="act_open_dms_send_attachment_view_form">
+		    <field name="act_window_id" ref="act_open_dms_send_attachment_view"/>
+		    <field name="sequence" eval="20"/>
+		    <field name="view_mode">form</field>
+		    <field name="view_id" ref="view_dms_send_attachment_form"/>
+		</record>
+
+</odoo>

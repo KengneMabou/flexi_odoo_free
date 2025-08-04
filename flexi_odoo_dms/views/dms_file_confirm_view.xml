@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_dms_file_confirm_form" model="ir.ui.view">
+        <field name="name">dms.file.confirm.form</field>
+        <field name="model">dms.file.confirm</field>
+        <field name="arch" type="xml">
+            <form string="Confirmation de réenvoi">
+                <sheet>
+                    <group>
+                        <field name="name" readonly="1"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button 
+                        name="action_confirm"
+                        string="Confirmer" 
+                        class="btn-primary"
+                        type="object"/>
+                    <button 
+                        string="Annuler"
+                        class="btn-secondary"
+                        special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>
