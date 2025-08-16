@@ -1,0 +1,18 @@
+<odoo>
+    <data>
+        <record id="msword_act_report_xml_view_inherit" model="ir.ui.view">
+            <field name="name">ir.actions.report.inherit</field>
+            <field name="model">ir.actions.report</field>
+            <field name="inherit_id" ref="base.act_report_xml_view"/>
+            <field name="arch" type="xml">
+                <field name="report_type" position="after">
+                    <field name="msword_template_name" invisible="1"/>
+                    <field name="is_msword_report"/>
+                    <field name="msword_template_file" filename="msword_template_name" invisible="is_msword_report != True"/>
+                    <field name="msword_export_type" invisible="is_msword_report != True"/>
+<!--                <field name="print_view" invisible="msword_export_type != 'pdf'" />-->
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>
