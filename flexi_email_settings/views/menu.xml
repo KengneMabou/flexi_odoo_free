@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_flexi_email_settings_root"
+            name="Email settings"
+            sequence="35"
+            groups="base.group_user"
+            web_icon="flexi_email_settings,static/description/icon.png"
+        />
+</odoo>

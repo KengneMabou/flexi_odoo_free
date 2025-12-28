@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="action_flexi_ir_mail_server_list">
+            <field name="name">Outgoing Mail Servers</field>
+            <field name="res_model">ir.mail_server</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="base.ir_mail_server_list" />
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="base.view_ir_mail_server_search"/>
+            <field name="domain">[('owner_setting_user_id','=',uid), ('is_personal_settings','=',True)]</field>
+            <field name="context">{'is_personal_settings':True}</field>
+        </record>
+        <menuitem id="menu_outgoing_mailserver" name="Outgoing mailserver"
+                sequence="2"
+                parent="menu_flexi_email_settings_root"
+                action="action_flexi_ir_mail_server_list"
+                />
+    </data>
+</odoo>
